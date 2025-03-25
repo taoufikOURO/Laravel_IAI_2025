@@ -99,7 +99,12 @@
                             </label>
                             <input type="text" id="last_name" name="last_name"
                                 class="input-style block w-full px-4 py-3.5 rounded-xl text-gray-800"
-                                placeholder="Entrez le nom de famille" required>
+                                placeholder="Entrez le nom de famille">
+                            @error('last_name')
+                                <p class="text-red-500 font-light text-center">
+                                    {{ $message }}
+                                </p>
+                            @enderror
                         </div>
 
                         <!-- Prénom -->
@@ -110,9 +115,14 @@
                             <input type="text" id="first_name" name="first_name"
                                 class="input-style block w-full px-4 py-3.5 rounded-xl text-gray-800"
                                 placeholder="Entrez le prénom">
+                            @error('first_name')
+                                <p class="text-red-500 font-light text-center">
+                                    {{ $message }}
+                                </p>
+                            @enderror
                         </div>
 
-                        <!-- Âge -->
+                        <!-- Date de naissance -->
                         <div>
                             <label for="birth_date" class="block text-sm font-medium text-gray-700 mb-2">
                                 Date de naisance
@@ -120,16 +130,26 @@
                             <input type="date" id="birth_date" name="birth_date"
                                 class="input-style block w-full px-4 py-3.5 rounded-xl text-gray-800"
                                 placeholder="Entrez la date de naissance">
+                            @error('birth_date')
+                                <p class="text-red-500 font-light text-center">
+                                    {{ $message }}
+                                </p>
+                            @enderror
                         </div>
 
                         <!-- Téléphone -->
                         <div>
-                            <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-2">
+                            <label for="phone_number" class="block text-sm font-medium text-gray-700 mb-2">
                                 Téléphone
                             </label>
-                            <input type="tel" id="phoneNumber" name="phoneNumber"
+                            <input type="tel" id="phone_number" name="phone_number"
                                 class="input-style block w-full px-4 py-3.5 rounded-xl text-gray-800"
                                 placeholder="Entrez le numéro de téléphone">
+                            @error('phone_number')
+                                <p class="text-red-500 font-light text-center">
+                                    {{ $message }}
+                                </p>
+                            @enderror
                         </div>
                     </div>
                 </div>
