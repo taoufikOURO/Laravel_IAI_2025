@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un étudiant</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    @vite('resources/css/app.css')
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
@@ -80,46 +80,46 @@
 </head>
 
 <body class="p-4 md:p-0">
-    <div class="w-full max-w-2xl mx-auto mt-12 md:mt-24 form-container">
+    @include('components.navbar')
+    <div class="w-full max-w-2xl mx-auto mt-12 md:mt-10 form-container">
         <div class="glass-effect rounded-2xl overflow-hidden">
             <!-- En-tête -->
             <div class="px-8 pt-8 pb-6 form-header">
                 <h2 class="text-2xl font-semibold text-gray-800 tracking-tight">Ajouter un étudiant</h2>
                 <p class="text-sm text-gray-500 mt-2">Informations personnelles de l'étudiant</p>
             </div>
-
             <form class="p-8" action="{{ route('students.store') }}" method="POST">
                 @csrf
                 <div class="space-y-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
                         <!-- Nom -->
                         <div>
-                            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
+                            <label for="last_name" class="block text-sm font-medium text-gray-700 mb-2">
                                 Nom
                             </label>
-                            <input type="text" id="lastName" name="lastName"
+                            <input type="text" id="last_name" name="last_name"
                                 class="input-style block w-full px-4 py-3.5 rounded-xl text-gray-800"
                                 placeholder="Entrez le nom de famille" required>
                         </div>
 
                         <!-- Prénom -->
                         <div>
-                            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+                            <label for="first_name" class="block text-sm font-medium text-gray-700 mb-2">
                                 Prénom
                             </label>
-                            <input type="text" id="firstName" name="firstName"
+                            <input type="text" id="first_name" name="first_name"
                                 class="input-style block w-full px-4 py-3.5 rounded-xl text-gray-800"
                                 placeholder="Entrez le prénom">
                         </div>
 
                         <!-- Âge -->
                         <div>
-                            <label for="age" class="block text-sm font-medium text-gray-700 mb-2">
-                                Âge
+                            <label for="birth_date" class="block text-sm font-medium text-gray-700 mb-2">
+                                Date de naisance
                             </label>
-                            <input type="number" id="age" name="age" min="16" max="99"
+                            <input type="date" id="birth_date" name="birth_date"
                                 class="input-style block w-full px-4 py-3.5 rounded-xl text-gray-800"
-                                placeholder="Entrez l'âge">
+                                placeholder="Entrez la date de naissance">
                         </div>
 
                         <!-- Téléphone -->
